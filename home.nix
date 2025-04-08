@@ -131,6 +131,7 @@
   programs.fish = {
     enable = true;
     functions = {
+      bbash = "bash -c 'echo $PATH && export PATH=$(echo $PATH | sed \"s/[^:]*\.nix-profile[^:]*://g\") && echo $PATH && exec bash'";
       netio = "curl \"http://DaMe-Netio/netio.cgi?pass=netio&output{$argv}=4\"";
     };
     shellAliases = {
