@@ -92,6 +92,15 @@
 
   # targets.genericLinux.enable = true;
 
+  # Recommended to enable XDG directory support
+  xdg.enable = true;
+
+  # KDE’s launcher won’t allow execution of .desktop entries that lack the executable bit, so we set it
+  home.activation.setDesktopExecPermission = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    echo "Making .desktop files executable in ~/.nix-profile/share/applications"
+    find ${config.home.profileDirectory}/share/applications/ -name "*.desktop" -exec chmod +x {} +
+  '';
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
