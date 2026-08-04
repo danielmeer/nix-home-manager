@@ -13,7 +13,8 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+  # home.stateVersion = "23.05"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -189,10 +190,10 @@
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
-    userName = "Daniel Meer";
-    userEmail = "daniel.meer@speedgoat.ch";
     lfs.enable = true;
-    extraConfig = {
+    settings = {
+      user.name = "Daniel Meer";
+      user.email = "daniel.meer@speedgoat.ch";
       # Hide warning in git-svn when 'git dcommit' first pulls new updates
       advice.skippedCherryPicks = "false";
       # core.editor = "code --wait";
