@@ -22,7 +22,6 @@
     # dcfldd # Needs sudo
     duf
     fd
-    fzf
     imagemagick
     meld
     patchelf
@@ -180,6 +179,11 @@
       { name = "bass"; src = pkgs.fishPlugins.bass.src; }
     ];
     generateCompletions = false; # Temporary workaround for completions not working
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
   };
 
   programs.git = {
