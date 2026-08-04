@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+let
+  oldGit = builtins.storePath /nix/store/s7f41ijzn16w4c3rw219sxflc7j6pz66-git-with-svn-2.53.0;
+  oldSvn = builtins.storePath /nix/store/v8hc9bg8v8zma1ygya13g8k1vf0jgydw-subversion-client-1.14.5;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -28,7 +32,8 @@
     patchelf
     podman
     ripgrep
-    subversionClient
+    # subversionClient
+    oldSvn
     tig
     tio
     tldr
@@ -189,7 +194,8 @@
 
   programs.git = {
     enable = true;
-    package = pkgs.gitFull;
+    # package = pkgs.gitFull;
+    package = oldGit;
     lfs.enable = true;
     settings = {
       user.name = "Daniel Meer";
