@@ -20,7 +20,6 @@
   home.packages = with pkgs; [
     # bmap-tools # Needs sudo
     # dcfldd # Needs sudo
-    distrobox
     duf
     fd
     fzf
@@ -128,6 +127,23 @@
   # };
 
   programs.bat.enable = true;
+
+  programs.distrobox.enable = true;
+  # Write minimal `policy.json` and `registries.conf` files to correct locations
+  # xdg.configFile."containers/policy.json".text = ''
+  #   {
+  #     "default": [
+  #       {
+  #         "type": "insecureAcceptAnything"
+  #       }
+  #     ]
+  #   }
+  # '';
+
+  # xdg.configFile."containers/registries.conf".text = ''
+  #   [registries.search]
+  #   registries = ["docker.io"]
+  # '';
 
   programs.eza = {
     enable = true;
