@@ -153,6 +153,14 @@
     ];
   };
 
+  programs.lsd = {
+    enable = true;
+    # enableFishIntegration = true;
+    settings = {
+      sorting.dir-grouping = "first";
+    };
+  };
+
   programs.fish = {
     enable = true;
     functions = {
@@ -160,7 +168,6 @@
       netio = "curl \"http://DaMe-Netio/netio.cgi?pass=netio&output{$argv}=4\"";
     };
     shellAliases = {
-      ls = "ls --color=auto --group-directories-first";
       t = "tig --all";
       g = "git status";
       gd = "git difftool";
