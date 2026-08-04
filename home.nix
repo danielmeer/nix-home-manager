@@ -169,6 +169,8 @@
     };
     shellAliases = {
       t = "tig --all";
+      ta = "tig $(git for-each-ref --format='%(refname:short)' refs/heads/argan)";
+      taa = "tig $(git for-each-ref --format='%(refname:short)' refs/heads/argan refs/remotes/origin/argan)";
       g = "git status";
       gd = "git difftool";
       gdbc = "git difftool --tool=bc";
@@ -177,6 +179,7 @@
     plugins = [
       { name = "bass"; src = pkgs.fishPlugins.bass.src; }
     ];
+    generateCompletions = false; # Temporary workaround for completions not working
   };
 
   programs.git = {
