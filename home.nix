@@ -244,6 +244,14 @@ in
 
   programs.lazygit.enable = true;
 
+  # Set the pinentry timeouts, so that it doesn't ask for the SVN password all the time.
+  services.gpg-agent = {
+    enable = true;
+    enableFishIntegration = true;
+    defaultCacheTtl = 604800; # 7d
+    maxCacheTtl = 18144000; # 30d
+  };
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
