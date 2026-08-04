@@ -25,13 +25,27 @@ in
   home.packages = with pkgs; [
     # bmap-tools # Needs sudo
     # dcfldd # Needs sudo
+    dos2unix
     duf
     fd
+    git-filter-repo
+    git-who
     imagemagick
+    iperf
+    # kdePackages.kolourpaint
     meld
+    mermaid-cli
+    net-snmp
+    nettools
+    nmap
     patchelf
+    # pinta
     podman
+    pv
+    # quickemu
     ripgrep
+    shellcheck
+    simplescreenrecorder
     # subversionClient
     oldSvn
     tig
@@ -39,6 +53,7 @@ in
     tldr
     tree
     ubootTools
+    xclip
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
