@@ -19,6 +19,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    binsider
     # bmap-tools # Needs sudo
     # dcfldd # Needs sudo
     dos2unix
@@ -29,6 +30,7 @@
     imagemagick
     iperf
     # kdePackages.kolourpaint
+    markdownlint-cli2
     meld
     mermaid-cli
     net-snmp
@@ -41,7 +43,7 @@
     # quickemu
     ripgrep
     shellcheck
-    simplescreenrecorder
+    # simplescreenrecorder
     subversionClient
     tig
     tio
@@ -236,6 +238,9 @@
     #   };
     # };
   };
+
+  programs.gh.enable = true;
+  programs.gh-dash.enable = true;
 
   programs.lazygit.enable = true;
 
