@@ -225,6 +225,7 @@
       mergetool.meld.cmd = "meld --diff $LOCAL $MERGED $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE --output $MERGED";
       mergetool.vscode.cmd = "code --wait --merge $REMOTE $LOCAL $BASE $MERGED";
       pull.rebase = "true";
+      rerere.enabled = "true";
     };
     # delta = {
     #   enable = true;
