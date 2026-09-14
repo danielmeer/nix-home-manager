@@ -243,7 +243,15 @@
   programs.gh.enable = true;
   programs.gh-dash.enable = true;
 
-  programs.lazygit.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+        showFileTree = false;
+        theme.selectedLineBgColor = [ "#3f4652" ];
+      };
+    };
+  };
 
   # Set the pinentry timeouts, so that it doesn't ask for the SVN password all the time.
   services.gpg-agent = {
