@@ -185,6 +185,7 @@
       netio = "curl \"http://DaMe-Netio/netio.cgi?pass=netio&output{$argv}=4\"";
     };
     shellAliases = {
+      cat = "bat --style=plain --paging=never";
       t = "tig --all";
       ta = "tig $(git for-each-ref --format='%(refname:short)' refs/heads/argan)";
       taa = "tig $(git for-each-ref --format='%(refname:short)' refs/heads/argan refs/remotes/origin/argan)";
