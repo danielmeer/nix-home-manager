@@ -278,4 +278,43 @@
   };
 
   programs.password-store.enable = true;
+
+  programs.alacritty = {
+    enable = true;
+    theme = "breeze";
+
+    settings = {
+      font = {
+        normal = {
+          family = "Hack Nerd Font Mono";
+          style = "Regular";
+        };
+        bold = {
+          family = "Hack Nerd Font Mono";
+          style = "Bold";
+        };
+        italic = {
+          family = "Hack Nerd Font Mono";
+          style = "Italic";
+        };
+        bold_italic = {
+          family = "Hack Nerd Font Mono";
+          style = "Bold Italic";
+        };
+        size = 9.8;
+      };
+      scrolling.history = 100000;
+      window.padding = {
+        x = 5;
+        y = 0;
+      };
+
+      # Start Zellij directly instead of fish.
+      terminal.shell.program = "zellij";
+    };
+  };
+
+  programs.zellij = {
+    enable = true;
+  };
 }
