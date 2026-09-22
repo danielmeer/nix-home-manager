@@ -106,7 +106,8 @@
     # VISUAL = "nvim";
   };
 
-  # targets.genericLinux.enable = true;
+  # Set up non-NixOS GPU drivers in /run/opengl-driver for Nix graphics apps.
+  targets.genericLinux.enable = true;
 
   # Recommended to enable XDG directory support
   xdg.enable = true;
