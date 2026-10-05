@@ -40,7 +40,6 @@
     # pinta
     podman
     pv
-    # quickemu
     ripgrep
     shellcheck
     # simplescreenrecorder
