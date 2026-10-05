@@ -303,17 +303,18 @@
         size = 9.8;
       };
       scrolling.history = 100000;
+      terminal.shell.program = "${pkgs.fish}/bin/fish";
       window.padding = {
         x = 5;
         y = 0;
       };
-
-      # Start Zellij directly instead of fish.
-      terminal.shell.program = "zellij";
     };
   };
 
   programs.zellij = {
     enable = true;
+    enableFishIntegration = true;
+    # attachExistingSession = true;
+    settings.default_shell = "${pkgs.fish}/bin/fish";
   };
 }
