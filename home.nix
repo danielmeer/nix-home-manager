@@ -319,5 +319,27 @@
     enableFishIntegration = true;
     # attachExistingSession = true;
     settings.default_shell = "${pkgs.fish}/bin/fish";
-  };
+
+    # Load Zellij's complete Unlock-First preset from its package source.
+    # Ctrl+G unlocks; plain letters select modes (e.g. t for tabs).
+    # The preset starts locked and returns to locked mode after most actions.
+    # Extraction depends on the upstream presets.rs structure.
+    extraConfig =
+      let
+        lib = pkgs.lib;
+        source = builtins.readFile
+          "${pkgs.zellij-unwrapped.src}/default-plugins/configuration/src/presets.rs";
+
+        # Extract the first Rust string: the Unlock-First preset.
+        preset = builtins.head (
+          lib.splitString ''"#'' (
+            builtins.elemAt (lib.splitString ''r#"'' source) 1
+          )
+        );
+      in
+      builtins.replaceStrings
+        [ "{primary_modifier}" "{secondary_modifier}" "{{" "}}" ]
+        [ "Ctrl" "Alt" "{" "}" ]
+        preset;
+    };
 }
