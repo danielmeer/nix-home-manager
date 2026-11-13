@@ -284,6 +284,8 @@
     theme = "breeze";
 
     settings = {
+      # Use correct mouse cursor theme
+      env.XCURSOR_PATH = "/usr/share/icons";
       font = {
         normal = {
           family = "Hack Nerd Font Mono";
