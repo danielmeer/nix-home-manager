@@ -21,6 +21,7 @@
   home.packages = with pkgs; [
     binsider
     # bmap-tools # Needs sudo
+    clang-tools
     # dcfldd # Needs sudo
     dos2unix
     duf
