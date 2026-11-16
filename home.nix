@@ -112,6 +112,11 @@
   # Recommended to enable XDG directory support
   xdg.enable = true;
 
+  # Prevent KDE Plasma 5 on Kubuntu 24.04 from hanging during startup.
+  # Nix's shared-mime-info 2.5.1 causes kbuildsycoca5 to hang while rebuilding
+  # its service cache. Use Ubuntu's system-provided MIME database instead.
+  xdg.mime.enable = false;
+
   # KDE’s launcher won’t allow execution of .desktop entries that lack the executable bit, so we set it
   home.activation.setDesktopExecPermission = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     echo "Making .desktop files executable in ~/.nix-profile/share/applications"
